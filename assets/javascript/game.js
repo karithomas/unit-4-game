@@ -1,35 +1,35 @@
 $(document).ready(function(){
-    // Computer Random # Array//
+    //Computer Random # Array//
        var ranNum= [];
            for(var i = 19; i < 121; i++){
                ranNum.push(i);
            }
            console.log(ranNum);
-   // Crystal Random # Array//
+   //Crystal Random # Array//
        var crystals = [];
            for(var j = 1; j < 13; j++){
                crystals.push(j);
            }
            console.log(j);
-   // Global Variables//
+   //Global Vars//
            var ranNum;
            var crystalNums = [];
            var btn1;
            var btn2;
            var btn3;
            var btn4;
-           var totScore = 0;//Players score//
-           var Wins= 0; //Wins//
-           var Losses = 0; //Losses//
+           var totScore = 0;
+           var Wins= 0;
+           var Losses = 0;
    
-   // Pick Random Number//
+   //Random Number//
            function pickRanNum(arr){
                var x = arr[Math.floor(Math.random() * arr.length)];
                ranNum = x;
                $("#matchNum").html(ranNum);
                console.log("matchNum: " + ranNum);
            }
-   // Pick Random Crystal Number//
+   //Random Crystal Number//
            function pickRanNumCrystals(arr){
                for( var y = 0; y < 4; y++){
                    var c = arr[Math.floor(Math.random() * arr.length)];
@@ -48,7 +48,7 @@ $(document).ready(function(){
                btn3 = arr[2];
                btn4 = arr[3];
            }
-   // Game Start//
+   //Start//
            pickRanNum(ranNum);
            pickRanNumCrystals(crystals);
            crystalVal(crystalNums);
@@ -76,22 +76,22 @@ $(document).ready(function(){
                $("#totNum").html(totScore);
                console.log(btn4);
            });
-   // If user Wins/ Losses//
+   //Wins Losses//
            $("button").on("click", function(){
                if(totScore === ranNum){
-                alert("You Winnn!!!!!!");
+                alert("You Win!");
                    $("#W").html("W: " + Wins);
                    Wins++;
                    reset();
                    } 
                    else if(totScore > ranNum){
-                    alert("Womp... You lost...");
+                    alert("Oh no! You lose.");
                        $("#L").html("L: " + Losses);
                        Losses++;
                        reset();
                    }
                });
-    //Game Reset//
+    //Reset//
     function reset(){
         $("#btn5").on("click", function(){
             pickRanNum(ranNum);
